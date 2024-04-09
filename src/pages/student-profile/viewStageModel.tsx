@@ -107,9 +107,9 @@ const ViewStageModel = ({ open, setOpen , stageData , studentId , selectedSubSta
 
           <Box>
             <Typography variant='h6' sx={{ fontWeight: 400,textAlign: 'end' , textTransform: 'uppercase' , mb: 4}}>
-              {stageData?.completionPercentage}%
+                  {selectedSubStage?.isFulfilled ? '100' : '0'}%
             </Typography>
-            <BorderLinearProgress variant="determinate" value={stageData?.completionPercentage} />
+                <BorderLinearProgress variant="determinate" value={selectedSubStage?.isFulfilled ? 100 : 0} />
           </Box>
 
           <Box sx={{my: 4}}>

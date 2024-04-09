@@ -87,8 +87,8 @@ const schema = yup.object().shape({
 })
 
 const defaultValues = {
-  password: 'admin',
-  email: 'admin@vuexy.com'
+  password: '',
+  email: ''
 }
 
 interface FormData {
@@ -204,7 +204,7 @@ const LoginPage = (params: InferGetStaticPropsType<typeof getStaticProps>) => {
                       value={value}
                       onBlur={onBlur}
                       onChange={onChange}
-                      placeholder='admin@vuexy.com'
+                      placeholder='example@gmail.com'
                       error={Boolean(errors.email)}
                       {...(errors.email && { helperText: errors.email.message })}
                     />
@@ -222,6 +222,7 @@ const LoginPage = (params: InferGetStaticPropsType<typeof getStaticProps>) => {
                       value={value}
                       onBlur={onBlur}
                       label='Password'
+                      placeholder='password'
                       onChange={onChange}
                       id='auth-login-v2-password'
                       error={Boolean(errors.password)}

@@ -42,10 +42,10 @@ function StudentProfile() {
 
 
 
-  const handleSetTypeOfOpen = (stage,substage) => {
+  const handleSetTypeOfOpen = (stage, substage) => {
 
     const userData = JSON.parse( localStorage.getItem('userData') );
-    console.log('selectedStage',stage);
+
     if(userData.role == 'student' || userData.role == 'admin'){
       setSelectedStage({...stage});
       setSelectedSubStage({...substage})
@@ -71,7 +71,7 @@ function StudentProfile() {
       Authorization: `Bearer ${localStorage.getItem('accessToken')}`
     }
    }).then(res => {
-    console.log('student data', res.data[0])
+
     setStudentData({...res.data[0]})
    });
 
@@ -91,7 +91,7 @@ function StudentProfile() {
     //   setCompletionPercentageData({...res.data})
     //  });
     }
-    console.log('studentDatastudentData',studentData)
+
   },[])
 
 

@@ -34,7 +34,7 @@ const VerticalNavItems = (props: Props) => {
 
   // get userData
   const userData = JSON.parse( localStorage.getItem('userData') );
-  console.log('userData', userData)
+
 
   const RenderMenuItems = verticalNavItems?.filter(item => item.roles.find(role => role == userData?.role))?.map((item: NavGroup | NavLink | NavSectionTitle, index: number) => {
     const TagName: any = resolveNavItemComponent(item)
