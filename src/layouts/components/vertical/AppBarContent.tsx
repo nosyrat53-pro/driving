@@ -11,8 +11,6 @@ import { Settings } from '/src/@core/context/settingsContext'
 // ** Components
 import ModeToggler from '/src/@core/layouts/components/shared-components/ModeToggler'
 import UserDropdown from '/src/@core/layouts/components/shared-components/UserDropdown'
-import NotificationDropdown from '../../../@core/layouts/components/shared-components/NotificationDropdown'
-import LanguageDropdown from '../../../@core/layouts/components/shared-components/LanguageDropdown'
 import Image from 'next/image'
 import IconifyIcon from '../../../@core/components/icon'
 import { useRouter } from 'next/router'
@@ -117,8 +115,6 @@ const AppBarContent = (props: Props) => {
 
       </Box>
       <Box className='actions-right' sx={{ display: 'flex', alignItems: 'center' }}>
-        {/* <LanguageDropdown settings={settings} saveSettings={saveSettings} /> */}
-        {/* <NotificationDropdown settings={settings} notifications={notifications}/> */}
 
         <UserDropdown settings={settings} />
       </Box>

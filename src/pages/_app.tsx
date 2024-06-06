@@ -8,9 +8,6 @@ import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 
 
-
-
-
 // ** Loader Import
 import NProgress from 'nprogress'
 
@@ -47,11 +44,6 @@ import ReactHotToast from '/src/@core/styles/libs/react-hot-toast'
 // ** Utils Imports
 import { createEmotionCache } from '/src/@core/utils/create-emotion-cache'
 
-// ** Prismjs Styles
-import 'prismjs'
-import 'prismjs/themes/prism-tomorrow.css'
-import 'prismjs/components/prism-jsx'
-import 'prismjs/components/prism-tsx'
 
 // ** React Perfect Scrollbar Style
 import 'react-perfect-scrollbar/dist/css/styles.css'
@@ -106,12 +98,15 @@ const App = (props: ExtendedAppProps) => {
 
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
 
-  const router = useRouter();
+  const router = useRouter()
 
   // Variables
   const contentHeightFixed = Component.contentHeightFixed ?? false
+
+  const isMobile = router.pathname.includes('mobile')
+
   const getLayout =
-    Component.getLayout ?? (page => <UserLayout contentHeightFixed={contentHeightFixed}>{page}</UserLayout>)
+    Component.getLayout ?? (page => isMobile ? <>{page}</> : <UserLayout contentHeightFixed={contentHeightFixed}>{page}</UserLayout>)
 
   const setConfig = Component.setConfig ?? undefined
 
@@ -121,9 +116,6 @@ const App = (props: ExtendedAppProps) => {
 
   const aclAbilities = Component.acl ?? defaultACLObj
 
-  useLayoutEffect(() => {
-    console.log('router' , router.asPath)
-  },[])
 
   return (
 

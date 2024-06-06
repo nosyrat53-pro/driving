@@ -122,7 +122,7 @@ const DataTable = ({noActions = false, viewRoute = null, isInstructorStudents = 
                   text: 'Delete',
                   menuItemProps: {
                     onClick: () => {
-                      console.log(row, "row")
+
                       setOpenDeleteModal(true)
                       setTypeCrud('Delete')
                       setRowId(row?.id)
@@ -130,7 +130,7 @@ const DataTable = ({noActions = false, viewRoute = null, isInstructorStudents = 
                   },
 
                   // href: `/apps/invoice/edit/${row.id}`,
-                  icon: <Icon icon='uiw:delete' onClick={() => console.log("test test")} />
+                    icon: <Icon icon='uiw:delete' onClick={() => { } } />
                 },
                 ...extraActions(row)
               ]}
@@ -150,12 +150,12 @@ const DataTable = ({noActions = false, viewRoute = null, isInstructorStudents = 
         setOpen(false)
       });
     } else create(values).then((res) => {
-      // console.log(res, "res")
+
       toast.success('Created Successfully')
       setOpen(false)
     }).catch(error => {
       toast.error( error.message)
-      console.log()
+
     })
   };
 
@@ -164,7 +164,7 @@ const DataTable = ({noActions = false, viewRoute = null, isInstructorStudents = 
     return (
       <Grid container spacing={6}>
         <Grid item xs={12}>
-          {/* <DialogCustomized /> */}
+
           <Card>
             <CardHeader sx={{ p: 3 }} title={title || 'Dev Table'} action={
               <Box sx={{display: 'flex'}}>

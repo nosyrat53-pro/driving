@@ -6,12 +6,6 @@ import FormSelect from '../../components/form-select'
 
 function DevTable() {
   const columns: GridColDef[] = [
-    // {
-    //   flex: 0.1,
-    //   field: 'id',
-    //   minWidth: 80,
-    //   headerName: 'id',
-    // },
 
     {
       accessorKey: 'firstName',

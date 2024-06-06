@@ -8,12 +8,8 @@ import DataTable from '/src/components/data-table'
 import CustomTextField from '../../@core/components/mui/text-field'
 import FormSelect from '../../components/form-select'
 import { Box } from '@mui/system';
-import IconifyIcon from '../../@core/components/icon';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { Icon } from '@iconify/react';
-
-
 
 
 // ** Styled MUI
@@ -33,27 +29,10 @@ function InstructorStudents() {
 
   const router = useRouter();
 
-  const [studentId, setStudentId] = useState(null);
   const [teacherId, setTeacherId] = useState(JSON.parse(localStorage.getItem('userData')).id);
   const [role, setRole] = useState(JSON.parse(localStorage.getItem('userData')).role);
 
-  const getSuitableColor = (percentage) => {
-    if (percentage <= 20) {
-      return 'error'
-    } else if (percentage <= 69) {
-      return "warning"
-    } else {
-      return "success"
-    }
-  }
-
   const columns: GridColDef[] = [
-    // {
-    //   flex: 0.1,
-    //   field: 'id',
-    //   minWidth: 80,
-    //   headerName: 'id',
-    // },
 
     {
       accessorKey: 'firstName',

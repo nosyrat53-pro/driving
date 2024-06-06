@@ -1,23 +1,16 @@
-// next imports
-import Image from 'next/image'
 
 // mui imports
 import { Card, Checkbox, CircularProgress, Divider, Grid, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import Accordion from '@mui/material/Accordion';
-import AccordionActions from '@mui/material/AccordionActions';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
-import Button from '@mui/material/Button';
-
 // third party imports
 import { Icon } from '@iconify/react'
-import CircularWithValueLabel from '../../@core/components/CircularProgress';
 import ViewStageModel from './viewStageModel';
 import { useEffect, useState } from 'react';
 import EditStageModel from './editStageModel';
 
-import BaseCrud from "/src/@core/utils/api_helper";
 import { useParams } from 'next/navigation';
 import axios from 'axios';
 import { useTheme } from '@emotion/react';
@@ -133,10 +126,6 @@ function StudentProfile() {
             {/* <Box sx={{ p: 3, height: {xs: 60 ,lg:150} , width: '100%', background: ' linear-gradient(to right, #7D4192 60%, #FFE6A6 )'}}></Box> */}
 
           <Box sx={{ p: 3 , position: 'relative'}}>
-{/*
-            <Box sx={{position: 'absolute', top: -40 , left: 40 , background: 'white' , p: 1}}>
-              <Image alt='student-profile-image' src={'/images/avatars/1.png'} width={68} height={68} />
-            </Box> */}
 
             <Box sx={{display: 'flex' ,flexWrap: 'wrap' , justifyContent: 'space-between' , alignItems: 'flex-end', gap: '15%'}}>
 
@@ -240,8 +229,6 @@ function StudentProfile() {
 
                               </Box>
 
-                      {/* <Button onClick={() => {handleSetTypeOfOpen(stage , subStage)}} sx={{fontSize: 13,display: 'flex', alignItems: 'center', gap: 1}}>
-                        <Icon fontSize='2.25rem' icon={'heroicons-solid:menu-alt-3'} />  View</Button> */}
                       </Box>
 
                     </AccordionSummary>

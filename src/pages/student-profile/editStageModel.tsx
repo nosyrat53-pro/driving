@@ -284,15 +284,6 @@ const EditStageModel = ({ open, setOpen , stageData ,selectedSubStage, studentId
 
           <Typography variant='h6' sx={{ fontWeight: 400 , display: 'flex',alignItems: 'center',gap: '10px'}}>
 
-          {/* <Checkbox
-          label={{ inputProps: { 'aria-label': 'Checkbox demo' }}}
-          defaultChecked={isFulilledStatus}
-          checked={isFulilledStatus}
-          name="Done"
-          ref={progressRef}
-          onChange={(e) => {setIsFulFilledStatus(prev => !prev)}}
-          color="warning"
-          /> */}
           <input
           type="checkbox"
           style={{

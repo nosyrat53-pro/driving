@@ -9,11 +9,9 @@ import toast from 'react-hot-toast'
 // ** Icon Imports
 import Icon from '/src/@core/components/icon'
 import { useEffect, useState } from 'react'
-import { Button, Fab, FormGroup, LinearProgress } from '@mui/material'
-import CircularProgress from '@mui/material/CircularProgress'
+import { Button } from '@mui/material'
 
 // ** MUI Imports
-import Divider from '@mui/material/Divider'
 import TimelineDot from '@mui/lab/TimelineDot'
 import TimelineItem from '@mui/lab/TimelineItem'
 import TimelineContent from '@mui/lab/TimelineContent'
@@ -21,10 +19,7 @@ import TimelineSeparator from '@mui/lab/TimelineSeparator'
 import TimelineConnector from '@mui/lab/TimelineConnector'
 import MuiTimeline, { TimelineProps } from '@mui/lab/Timeline'
 import CustomTextField from '../../../@core/components/mui/text-field'
-import CustomTimelineDot from '/src/@core/components/mui/timeline-dot'
 
-// ** Hook Import
-import { useSettings } from '/src/@core/hooks/useSettings'
 import axios from 'axios'
 import DeleteModal from './DeleteStageModal'
 
@@ -37,11 +32,6 @@ const Timeline = styled(MuiTimeline)<TimelineProps>({
     }
   }
 })
-
-// Styled component for the image of a shoe
-const ImgShoe = styled('img')(({ theme }) => ({
-  borderRadius: theme.shape.borderRadius
-}))
 
 
 
@@ -62,7 +52,6 @@ const Drawer = styled(MuiDrawer)<DrawerProps>(({ theme }) => ({
 
 const ProgressTimeLine = ({ open, setOpen,selectedCourse }) => {
   const [stages, setStages] = useState([]);
-  const [addSubStageId,setAddSubStageId] = useState(null);
   const [stage, setStage] = useState({
     courseId: null,
     description: '',
@@ -73,13 +62,11 @@ const ProgressTimeLine = ({ open, setOpen,selectedCourse }) => {
     name: '',
     description: ''
   });
-  const [loadingAddSubStage,setLoadingAddSubStage] = useState(false);
 
   const [showForm, setShowForm] = useState(false)
   const [loadingDelete, setLoadingDelete] = useState(false)
   const [loadingSubmit, setLoadingSubmit] = useState(false)
   const [deleteId, setDeleteId] = useState(-1)
-  const { settings } = useSettings()
 
   const [EditId,setEditId] = useState(null);
   const [editstage,setEditStage] = useState({});
@@ -101,7 +88,6 @@ const ProgressTimeLine = ({ open, setOpen,selectedCourse }) => {
     }).then(res => {
       setStages([...res.data])
 
-      console.log("stages123", res)
     })
   }
 
@@ -114,22 +100,6 @@ const ProgressTimeLine = ({ open, setOpen,selectedCourse }) => {
 
   }, [selectedCourse]);
 
-  // delete Stage by stageId
-  const deleteStage = async (id: number) => {
-    setLoadingDelete(true)
-
-    return await axios.delete(`${process.env.NEXT_PUBLIC_DEV_BASE_URL}/dev/stages/${id}`, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-      }
-    }).then(res => {
-      setLoadingDelete(false)
-      getStage(selectedCourse?.id)
-      toast.success('Deleted Successfully')
-
-      return res.data
-    })
-  }
 
   // Create Stage
   const handleSubmit = async () => {
@@ -261,7 +231,6 @@ const ProgressTimeLine = ({ open, setOpen,selectedCourse }) => {
 
   }
 
-  console.log("stage", stage)
 
   return (
     <div className='customizer'>

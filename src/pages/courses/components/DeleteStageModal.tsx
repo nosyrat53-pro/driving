@@ -52,7 +52,7 @@ const DeleteModal = ({ working, openDeleteModal, setOpenDeleteModal,setLoadingDe
 
     })
     .catch(err => {
-      // console.log('error is =>', )
+
       toast.error(err.response.data.message)
     })
     .finally(() => {

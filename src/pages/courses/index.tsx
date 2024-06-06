@@ -14,12 +14,6 @@ function DevTable() {
   const [loadingDelete,setLoadingDelete] = useState(false);
 
   const columns: GridColDef[] = [
-    // {
-    //   flex: 0.1,
-    //   field: 'id',
-    //   minWidth: 80,
-    //   headerName: 'id',
-    // },
 
     {
       accessorKey: 'name',
@@ -68,7 +62,6 @@ function DevTable() {
               }
               },
 
-              // href: `/apps/invoice/edit/${row.id}`,
               icon: <Icon icon='zondicons:add-outline' />
             },
           ]

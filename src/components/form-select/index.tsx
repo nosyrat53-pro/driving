@@ -9,7 +9,7 @@ import CustomTextField from "../../@core/components/mui/text-field";
 
 const FormSelect = (props) => {
   const [options, setOptions] = useState([]);
-  console.log("options", options)
+
   useEffect(() => {
     if (props?.options) {
       setOptions(props?.options);
@@ -19,13 +19,10 @@ const FormSelect = (props) => {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
-      }).then((data) => setOptions(data.data)).catch((error) => console.log(error));
+      }).then((data) => setOptions(data.data)).catch((error) => { });
     }
   }, []);
 
-  useEffect(() => {
-    console.log('options', options)
-  },[options])
 
   return (
     <CustomTextField label={props.label} className="w-100" {...props} id='custom-select' select >

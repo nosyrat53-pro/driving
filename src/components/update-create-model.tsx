@@ -14,14 +14,14 @@ import { Button, ClickAwayListener, FormGroup } from '@mui/material'
 import toast from 'react-hot-toast'
 
 const Drawer = styled(MuiDrawer)<DrawerProps>(({ theme }) => ({
-  width: 400,
+  maxWidth: 400,
   zIndex: theme.zIndex.modal,
   '& .MuiFormControlLabel-root': {
     marginRight: '0.6875rem'
   },
   '& .MuiDrawer-paper': {
     border: 0,
-    width: 400,
+    maxWidth: 400,
     zIndex: theme.zIndex.modal,
     boxShadow: theme.shadows[9]
   }
@@ -100,16 +100,7 @@ const UpdateCreateModel = ({setIdRow, working, form, open, setOpen, columns, set
       toast.error(checkIsValidToSend(values));
     }
 
-    // setForm({});
 
-    // setValues(() =>
-    //   columns.reduce((acc, column) => {
-    //     acc[column.accessorKey
-    //       ?? ""] = "";
-
-    //     return acc;
-    //   }, {})
-    // );
   };
 
 
@@ -133,7 +124,7 @@ const UpdateCreateModel = ({setIdRow, working, form, open, setOpen, columns, set
           <Typography variant='h6' sx={{ fontWeight: 600, textTransform: 'uppercase' }}>
             {typeCrud}
           </Typography>
-          {/* <Typography sx={{ color: 'text.secondary' }}>Customize & Preview in Real Time</Typography> */}
+
           <IconButton
             onClick={() => setOpen(false)}
             sx={{
